@@ -1,5 +1,9 @@
-const logEvents = require('./logEvents')
+const http = require('http');
+const path = require('path');
+const fs = require('fs');
+const fsPromises = require('fs').promises;
 
+const logEvents = require('./logEvents')
 const Emitter = require('events');
 //Create Custom Emitter:
 class Emitter extends Emitter{};
@@ -9,10 +13,7 @@ class Emitter extends Emitter{};
 const myEmitter = new Emitter();
 
 //add listener for the log event
-myEmitter.on('logs', (msg) => {logEvents(msg)});
+// myEmitter.on('logs', (msg) => {logEvents(msg)});
+// myEmitter.emit('logs', 'log event emitted')
 
-setTimeout(() => {
-    //emit event
-    myEmitter.emit('logs', 'log event emitted')
-}, 200);
 
