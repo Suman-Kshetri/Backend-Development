@@ -1,16 +1,15 @@
 {
-  "name": "lecture4",
+  "name": "lecture3",
   "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "server.js",
   "scripts": {
     "start": "node server",
     "dev": "nodemon server"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "description": "",
   "dependencies": {
     "date-fns": "^4.1.0",
     "uuid": "^11.0.5"
