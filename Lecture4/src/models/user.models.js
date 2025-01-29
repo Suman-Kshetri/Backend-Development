@@ -67,8 +67,10 @@ userSchema.methods.isPasswordCorrect = async function(password){
 //jwt is bearer token: 
 userSchema.methods.generateAccessToken = function(){
     //to generate token
+    //sign method is used to generate the token
     return jwt.sign(
         {
+            //payload accessing the user details from the database
             _id: this._id,
             email: this.email,
             username: this.username,

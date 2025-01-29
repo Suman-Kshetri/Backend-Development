@@ -37,6 +37,6 @@ const videoSchema = new Schema({
         ref: 'User',
     }
 },{timestamps: true});
-
+//mongoose aggregate paginate is used to paginate the data in the database
 videoSchema.plugin(mongooseAggregatePaginate);
 export const Video = mongoose.model('Video', videoSchema);
