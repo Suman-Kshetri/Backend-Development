@@ -1,5 +1,5 @@
 import express from "express";
-import cros from "cors";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -27,5 +27,18 @@ app.use(express.static("public"));
 // to acccess and set user cookies [ONLY SERVER CAN READ AND WRITE COOKIES]
 app.use(cookieParser());
 
+//routes import
+import userRouter from "./routes/user.routes.js";
 
-export default app;
+//routes declaration
+//we use app.get when we write routes and controllers in same file but since we wrote it in 
+//different files we use app.use ie middleware
+
+// app.use("/users", userRouter);
+// http://localhost:8000/users/register
+
+app.use('/api/v1/users', userRouter);
+// http://localhost:8000/api/v1/users/register
+
+
+export  {app};
