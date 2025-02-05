@@ -18,11 +18,12 @@ const registerUser = asyncHandler(
     //8. check for user creation
     //9. return response
     // get data from frontend
-    const {fulName, email, username, password} = req.body;
+    const {fullName, email, username, password} = req.body;
     console.log('email:',  email);
-
+    console.log("Request body:",req.body);
     //validation
     if(
+        //ckecking if any of the fields are empty or not
         [fullName,email,username,password].some((field) => field?.trim() === "")
     )
     {
@@ -30,7 +31,7 @@ const registerUser = asyncHandler(
     }
 
     //check if user already exists or not
-    const existedUser = User.findOne({
+    const existedUser = await User.findOne({
         //only one field can also be used
         // like: ({username})
         $or: [
@@ -46,7 +47,16 @@ const registerUser = asyncHandler(
     // in req.body all data comes  using express
     // multer gives the data in req.files
     const avatarLocalPath = req.files?.avatar[0]?.path
-    const coverImageLocalPath = req.files?.coverImage[0]?.path
+    // const coverImageLocalPath = req.files?.coverImage[0]?.path
+    // to check if coverImage is present or not 
+    let coverImageLocalPath;
+    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+        coverImageLocalPath = req.files.coverImage[0].path;
+
+    }
+
+    console.log("request files: ",req.files);
+    
 
     if(!avatarLocalPath){
         throw new ApiError(400, "Avatar image is required");

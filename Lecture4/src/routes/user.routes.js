@@ -6,7 +6,7 @@ import {upload} from "../middlewares/multer.middleware.js";
 const router = Router();
 
 router.route("/register").post(
-    // send files in backend from
+    // send files in backend from frontend
     upload.fields([
         {
             name: 'avatar',

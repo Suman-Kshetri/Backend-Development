@@ -65,7 +65,7 @@ userSchema.methods.isPasswordCorrect = async function(password){
     return await bcrypt.compare(password, this.password);
 }
 
-//jwt is bearer token: 
+//jwt is bearer token: JWT is used for authentication.
 userSchema.methods.generateAccessToken = function(){
     //to generate token
     //sign method is used to generate the token
