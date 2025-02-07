@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {registerUser} from "../controllers/user.controller.js";
+import {registerUser, loginUser} from "../controllers/user.controller.js";
 import {upload} from "../middlewares/multer.middleware.js";
 
 
@@ -7,6 +7,7 @@ const router = Router();
 
 router.route("/register").post(
     // send files in backend from frontend
+    // multer is used to upload files in backend
     upload.fields([
         {
             name: 'avatar',
@@ -20,5 +21,11 @@ router.route("/register").post(
     registerUser
 );
 
+router.route("/login").post(loginUser);
+
+//secured routes
+// verifyJWT is a middleware that verifies the token and 
+// attaches the user object to the request object
+router.route("/logout").post(verifyJWT, logoutUser);
 
 export default router;
