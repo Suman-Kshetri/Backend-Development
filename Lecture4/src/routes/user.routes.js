@@ -1,7 +1,8 @@
 import {Router} from "express";
 import {registerUser, loginUser} from "../controllers/user.controller.js";
 import {upload} from "../middlewares/multer.middleware.js";
-
+import {verifyJWT} from "../middlewares/auth.middleware.js";
+import {logoutUser, refreshAccessToken} from "../controllers/user.controller.js";
 
 const router = Router();
 
@@ -27,5 +28,6 @@ router.route("/login").post(loginUser);
 // verifyJWT is a middleware that verifies the token and 
 // attaches the user object to the request object
 router.route("/logout").post(verifyJWT, logoutUser);
+router.route("/refresh-token").post(refreshAccessToken);
 
 export default router;
