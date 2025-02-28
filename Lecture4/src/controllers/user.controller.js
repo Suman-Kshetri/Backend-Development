@@ -436,7 +436,7 @@ const getUserWatchHistory = asyncHandler(async (req, res) => {
     const user = await User.aggregate([
         {
             $match: {
-                //not taking rew._id directly because it 
+                //not taking user._id directly because it 
                 // is a mongoose object and we need to convert it to a string
                 _id: new mongoose.Types.ObjectId(req.user?._id)
             }
