@@ -54,24 +54,23 @@ The backend can also interact with:
 ## Project Structure
 
 A well-organized backend project typically includes:
-
+```
 
 ├── package.json
 ├── .env
 ├── README.md
 ├── .gitignore
 └── src/
-├── index.js        # Entry point, DB connection
-├── app.js          # Express configuration
-├── constants.js    # Enums, DB names, etc.
-├── db/             # Database connection
-├── models/         # Data structure definitions
-├── controllers/    # Business logic
-├── routes/         # API endpoints
-├── middlewares/    # Request processors
-└── utils/          # Helper functions
-
-
+├── index.js # Entry point, DB connection
+├── app.js # Express configuration
+├── constants.js # Enums, DB names, etc.
+├── db/ # Database connection
+├── models/ # Data structure definitions
+├── controllers/ # Business logic
+├── routes/ # API endpoints
+├── middlewares/ # Request processors
+└── utils/ # Helper functions
+```
 ## Express Setup
 
 Express.js is a web framework for Node.js that simplifies building APIs.
